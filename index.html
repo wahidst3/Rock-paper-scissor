@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Console for now 
+
+
+    <script>
+        //game will be between computer and user
+        //prompt user to choose rock-paper/sciesor
+        //the computer choice will be random
+        //compare if computer choice and user are same 
+        //if same or higher great then congrat
+        //otherwise alert next time beeter luck
+        //at the end show scores
+        
+        function getComputerChoice() {
+     const choice = Math.floor(Math.random()*3);
+     
+    switch (choice) {
+      case 0:
+       return 'Rock';
+         case 1:
+          return 'paper';
+        case 2:
+         return  'Scissor';
+        
+  };
+ 
+} 
+let score=0
+function scoreShow(){
+          if (score>=3){
+            //alert scores as winnig at end
+
+          console.log("WellDone! Your score is " + score +"Keep it Up")
+         alert("WellDone! Your score is " + score +"Keep it Up")
+
+        }
+        else if(score<0){
+          score=0;
+
+          console.log("Better luck next time! Your score is"
+         +  score+' ' +"Refresh to try again ")
+         alert("Better luck next time! Your score is "
+         +  score +' '+" Refresh to try again ")
+
+        }
+        else{
+          //alert score as losing at the end
+          console.log("Better luck next time! Your score is "
+         +  score+' ' +"Refresh to try again ")
+
+         alert("Better luck next time! Your score is "
+         +  score +' '+" Refresh to try again ")
+        }
+        }
+      
+    
+
+ 
+        function playRound(playerSelection, computerSelection) {
+       // Taking player's choices
+       var computerSelection=getComputerChoice(); 
+
+      var playerText=prompt("Select Rock/paper/scissors").toUpperCase();
+      let splitedText=playerText.slice(1)
+      let partA=playerText.slice(0,1)
+      let partB=splitedText.toLowerCase();
+      var playerSelection= partA + partB
+         //check if ties 
+        if(playerSelection===computerSelection){
+
+            console.log("You tied the match ")
+          
+        }
+        //check if player wins 
+        else if(playerSelection==='Paper' && computerSelection==='Rock'
+        ||playerSelection==='Scissor' && computerSelection==='Paper'
+         ||playerSelection==='Rock' && computerSelection==='Scissor'  ){
+         score++
+         
+         console.log(`Hurray Winner! ${playerSelection} beats ${computerSelection}`)
+        
+          }
+          //check if computer wins
+        else{
+         score--;
+         console.log(`You Lost! ${playerSelection} beats ${computerSelection}`)
+        
+        }
+        
+        
+        }
+        
+       function playGame(){
+        playRound();
+        
+        playRound()
+        
+        playRound()
+
+        playRound()
+        playRound()
+        scoreShow()
+       
+       }
+     
+       
+        
+       
+       playGame()
+
+    </script>
+
+
+
+
+
+</body>
+</html>
